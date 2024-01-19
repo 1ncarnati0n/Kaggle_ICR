@@ -41,7 +41,7 @@ output
 
 
 ## 평가지표
-$$ Log Loss = \frac{-\frac{1}{N_0}\sum^{N_0}{i=1}y_{0i}\log{p_{0i}}-\frac{1}{N_1}\sum^{N_1}{i=1}y_{1i}\log{p_{1i}}}{2} $$
+$$ Log Loss = \frac{-\frac{1}{N_0}\sum{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}{N_1}\sum{i=1}^{N_1}y_{1i}\log{p_{1i}}}{2} $$
 
 $$ p =\max(\min(p,1-10^{-15}), 10^{-15}) $$
 
