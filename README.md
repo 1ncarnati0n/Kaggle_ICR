@@ -1,6 +1,7 @@
 # Kaggle_ICR
 Kaggle Competition | ICR-Identifying Age-Related Conditions
 
+
 ## OverView
 
 **대회소개**
@@ -22,6 +23,7 @@ output
 
 
 ## 데이터
+
 - **Train.csv**: 학습용 데이터 
 <br> Id, 의료정보가 담긴 features, class 의 컬럼으로 구성되어 있다.
 <br> Class가 0인지 1인지 확인하는 것이 목표이다.
@@ -50,6 +52,7 @@ $$ p =\max(\min(p,\ 1-10^{-15}),\ 10^{-15}) $$
 - Logloss는 다른 평가지표와 비교했을 때, 우연히 정답을 맞추는 것을 방지하기 위하여 틀린 값에 대해 페널티를 줌.
 - 해당 대회의 학습train 데이터에서 타겟(Class 0, 1) 데이터가 균등하게 분포되지 않아 데이터 더 많은 Class로 예측하게 되는 문제. 이를 보정할 수 있는 Balanced logloss로 평가.
 
+
 ## 탐색적 데이터분석 EDA
 
 ## 피쳐엔지니어링
@@ -59,3 +62,9 @@ $$ p =\max(\min(p,\ 1-10^{-15}),\ 10^{-15}) $$
 ## 한계 점
 
 ## 최종 결과
+
+
+
+
+
+
