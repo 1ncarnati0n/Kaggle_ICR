@@ -27,15 +27,14 @@ Kaggle Competition | ICR-Identifying Age-Related Conditions
 - **Train.csv**: 학습용 데이터 
 <br> Id, 의료정보가 담긴 features, class 의 컬럼으로 구성되어 있다.
 <br> Class가 0인지 1인지 확인하는 것이 목표이다.
-<br> Id, EJ, Class 열은 object 데이터타입으로 되어있다.
-<br> 그 외의 데이터는 숫자형 데이터로 되어있다.
+<br> 56개의 건강 특성 (AB~GL), EJ 컬럼은 categorical, 나머지는 모두 numeric 데이터
 <br> BQ와 EL의 결측치가 60개, 그 외 7개의 컬럼에는 각 1~3개의 결측치가 있음.
 
 - **Test.csv**: 예측 대상 데이터 
 <br> Id와 의료정보가 담긴 features로 구성되어 있다.
 
 - **greeks.csv**: 학습용 데이터에만 사용가능한 부수적 데이터.
-<br> Id, Alpha, Beta, Gamma, Delta, Epsilon으로 구성되어 있다.
+<br> Id, Alpha(노화 여부 코드), Beta, Gamma, Delta(3가지 실험적 특징 experimental characteristics), Epsilon(데이터 수집 날짜)으로 구성되어 있다.
 <br> 617개의 행과 6개의 열로 구성되어 있으며 모든 열 데이터타입이 object로 구성.
 <br> 결측치는 없으며 Epsilon컬럼 중 ‘Unknown’이 144개 존재.
 
