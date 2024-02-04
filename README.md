@@ -46,12 +46,14 @@ Kaggle Competition | ICR-Identifying Age-Related Conditions
 <br>
 
 ## 평가지표
+**Balanced logarithmic loss**
+
 
 $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}{N_1}\Sigma_{i=1}^{N_1}y_{1i}\log{p_{1i}}}{2} $$
 
 - 환자와 비 환자의 Logloss을 각각 계산하여 그 값의 평균을 반환.
 - Logloss는 다른 평가지표와 비교했을 때, 우연히 정답을 맞추는 것을 방지하기 위하여 틀린 값에 대해 페널티를 줌.
-- 해당 대회의 학습train 데이터에서 타겟(Class 0, 1) 데이터가 균등하게 분포되지 않아 데이터 더 많은 Class로 예측하게 되는 문제. 이를 보정할 수 있는 Balanced logloss로 평가.
+- 해당 대회의 학습train 데이터에서 타겟(Class 0, 1) 데이터가 균등하게 분포되지 않아 데이터 더 많은 Class로 예측하게 되는 문제가 있으며, 이를 보정할 수 있는 Balanced logloss로 평가.
 
 <br>
 
