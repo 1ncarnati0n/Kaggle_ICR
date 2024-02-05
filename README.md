@@ -58,6 +58,12 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 
 ## 탐색적 데이터분석 EDA
 
+<p align='center'><img src="assets/fig01.png" width="720"></p>
+<p align='center'><img src="assets/fig02.png" width="720"></p>
+<p align='center'><img src="assets/fig03.png" width="720"></p>
+<p align='center'><img src="assets/fig04.png" width="720"></p>
+
+
 ## 피쳐엔지니어링
 
 ## 모델선정 및 훈련
