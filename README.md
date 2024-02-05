@@ -137,13 +137,16 @@ for bag in range(bag_num):
 
         feature_importances = lgb.feature_importances_
 
-        feature_importance_df = pd.DataFrame({'Feature': X_train.columns,
-                                              'Split': feature_importances,
-                                              'Gain': lgb.booster_.feature_importance(importance_type='gain')})
+        feature_importance_df = pd.DataFrame({
+            'Feature': X_train.columns, 
+            'Split': feature_importances, 
+            'Gain': lgb.booster_.feature_importance(importance_type='gain')})
         feature_importance_df['bag'] = bag
         feature_importance_df['fold'] = fold
 
-        feature_importance_df_total = pd.concat([feature_importance_df_total, feature_importance_df], axis=0)
+        feature_importance_df_total = pd.concat([feature_importance_df_total, 
+                                                 feature_importance_df], 
+                                                 axis=0)
 
         y_pred = lgb.predict_proba(X_valid)
 
@@ -154,7 +157,10 @@ for bag in range(bag_num):
 
         models[bag].append(lgb)
 
-        print(f"Bags: {bag}, Fold: {fold}, log loss: {round(logloss, 3)}, balanced los loss: {round(balanced_logloss, 3)}")
+        print(f"Bags: {bag},
+        Fold: {fold}, 
+        log loss: {round(logloss, 3)},
+        balanced los loss: {round(balanced_logloss, 3)}")
 ```
 ```
 -------------------------- bag: 0 --------------------------
@@ -198,7 +204,7 @@ Bags: 19, Fold: 4, log loss: 0.165, balanced los loss: 0.112
 
 - `Stratified K-Fold Cross Validation`은 데이터를 n_fold 만큼의 그룹으로 나누고, 각 그룹을 테스트 셋으로 사용하는 동시에 나머지 그룹으로 훈련 셋을 구성하는 방식입니다. <br> Stratified는 **각 Fold에 클래스의 비율이 원본 데이터셋의 클래스 비율과 동일하게 유지**됨을 보장하여 **모델의 성능을 일반화해 개선**하도록 합니다. 
 
-- `LightGBM`을 사용했습니다. **빠른 학습 속도**와 **높은 효율성**으로 많이 사용됩니다.
+- `LightGBM`을 사용했습니다. **빠른 학습 속도**와 **높은 효율성**으로 많이 사용됩니다. CatBoost 사용하지 않은 이유.
 
 - `feature_importances_` 매서드를 통해서 각 특성의 중요도를 가져옵니다. 이는 모델이 예측을 만드는 데 얼마나 각 특성을 사용했는지를 나타냅니다.
 
