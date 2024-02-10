@@ -1,16 +1,24 @@
 # Kaggle: ICR
 **Kaggle Competition | ICR** - Identifying Age-Related Conditions
 
+### 사용기술
+![Python](https://img.shields.io/badge/Python-ffe74a.svg?style=flat&logo=Python&logoColor=blue) 
+![NumPy](https://img.shields.io/badge/NumPy-4d77cf.svg?style=flat&logo=NumPy&logoColor=4dabcf) 
+![Pandas](https://img.shields.io/badge/Pandas-130654.svg?style=flat&logo=Pandas&logoColor=whitle) 
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C.svg?style=flat&logo=Matplotlib&logoColor=white) 
+![Plotly](https://img.shields.io/badge/Plotly-262626.svg?style=flat&logo=Plotly&logoColor=white) 
+![ScikitLearn](https://img.shields.io/badge/Scikit%20Learn-F79939.svg?style=flat&logo=Scikit%20Learn&logoColor=3499CD) 
+
 ## OverView
 
 ### 대회소개
-- 주어진 조건으로 환자가 3가지 노화관련 질병에 해당 되는지 예측.
-- 3가지 질병 중 하나 이상을 가지고 있는지(Class 1) 또는 아무 질병도 가지고 있지 않는지(Class 0)로 구분 (이진 분류 문제)
+- 주어진 조건으로 환자가 3가지 노화관련 질병에 해당 되는지 예측합니다.
+- 3가지 질병 중 하나 이상을 가지고 있는지(Class 1) 또는 아무 질병도 가지고 있지 않는지(Class 0)로 구분 하는 이진분류 $^{\textrm{Binary Classification}}$ 문제입니다.
 
 ### 배경
 - 나이는 숫자에 불과하다는 말이 있지만, 노화와 함께 수많은 건강 문제가 발생합니다. 심장병과 치매에서 청력 상실과 관절염에 이르기까지, 노화는 수많은 질병과 합병증의 위험 요소입니다. 생물정보학 분야는 생물학적 노화를 늦추거나 되돌리고 주요 노화 관련 질병을 예방하는 데 도움이 될 수 있는 개입에 대한 연구를 포함하여 성장하고 있습니다. 데이터 과학은 샘플 수가 적더라도 다양한 데이터로 문제를 해결할 수 있는 새로운 방법을 개발하는 데 중요한 역할을 할 수 있습니다.
 
-- 현재 건강상태를 예측하는 데 XGBoost나 랜덤포레스트와 같은 모델이 사용되고 있지만, 그 성능이 충분하지 않습니다. 생명이 달린 중요한 문제를 다루기 위해서는 모델이 다양한 사례에 대해 안정적이고 일관되게 정확한 예측을 내려야 합니다.
+- 현재 건강상태를 예측하는데 XGBoost나 랜덤포레스트와 같은 모델이 사용되고 있지만, 그 성능이 충분하지 않습니다. 생명이 달린 중요한 문제를 다루기 위해서는 모델이 다양한 사례에 대해 안정적이고 일관되게 정확한 예측을 내려야 합니다.
 
 **참여기간**: 23.06.19 ~ 23.07.05
 
@@ -71,10 +79,10 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 
 <br>
 
-### 결측치 처리 Handling missing values
-**KNNImputer()**
+### 결측치 처리 Handling Missing Values
+**KNNImputer**
 
-- 각 컬럼의 Features가 정확한 의미를 알 수 없도록 익명화 되어있고, 숫자로 변환되어 있습니다.
+- 각 컬럼의 피쳐값들이 정확한 의미를 알 수 없도록 익명화 되어있고, 숫자로 변환되어 있습니다.
 
 - 결측치를 보간하는 방법을 숫자의 특성이 반영될 수 있는 방법을 모색하였습니다.
 
@@ -85,7 +93,7 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 <br>
 
 ### 표준화 Scaler 
-**StandardScaler()**, **Z-Score**
+**StandardScaler**, **Z-Score**
 
 - 각 `Feature`별 분산과 데이터 값의 범위가 다양하여, 범주형 데이터 `EJ` 열만을 제외하고 스케일을 진행했었습니다. **하지만**
 
