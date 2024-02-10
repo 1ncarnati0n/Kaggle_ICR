@@ -7,7 +7,7 @@
 ![Pandas](https://img.shields.io/badge/Pandas-130654.svg?style=flat&logo=Pandas&logoColor=whitle) 
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C.svg?style=flat&logo=Matplotlib&logoColor=white) 
 ![Plotly](https://img.shields.io/badge/Plotly-262626.svg?style=flat&logo=Plotly&logoColor=white) 
-![ScikitLearn](https://img.shields.io/badge/Scikit%20Learn-F79939.svg?style=flat&logo=Scikit%20Learn&logoColor=3499CD) 
+![ScikitLearn](https://img.shields.io/badge/Scikit%20Learn-F79939.svg?style=flat&logo=Scikit%20Learn&logoColor=3499CD)
 
 ## OverView
 
@@ -95,7 +95,7 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 ### 표준화 Scaler 
 **StandardScaler**, **Z-Score**
 
-- 각 `Feature`별 분산과 데이터 값의 범위가 다양하여, 범주형 데이터 `EJ` 열만을 제외하고 스케일을 진행했었습니다. **하지만**
+- 각 피쳐별 분산과 데이터 값의 범위가 다양하여, 범주형 데이터 `EJ` 열만을 제외하고 스케일을 진행했었습니다. **하지만**
 
 - 최종으로 사용하게 될 `LightGBM` 은 로지스틱회귀나 트리 기반 모델인 의사결정나무, 랜덤 포레스트, 그래디언트 부스팅에 속하는 모델이며 이런 모델은 변수의 크기에 민감하지 않으므로 표준화를 수행해줄 필요가 없습니다.
 
@@ -110,6 +110,11 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 - 하지만, 수집되는 Class 데이터는 어쩔수 없이 불균형한 데이터가 모이게 될것으로 이런 데이터를 학습시에는 결국 더 많은 수량의 Class 로 예측하게 되는 경향을 보정하기 위해 `Balanced logloss` 최종적으로 리더보드에서 채택하여 평가하고 있습니다.
 
 - 이미 평가지표에서 클래스 불균형을 보정한다고 판단하고 있기에 별도의 처리과정을 진행하지 않았습니다.
+
+### 다중공선성
+
+EDA 를 통한 독립변수간 상관관계가 높아 다중공선성으로 의심되는 피쳐들을 확인했습니다. 
+<p align='center'><img src="assets/fig04.png" width="520"></p>
 
 <br>
 
@@ -151,7 +156,6 @@ for bag in range(bag_num):
             'Gain': lgb.booster_.feature_importance(importance_type='gain')})
         feature_importance_df['bag'] = bag
         feature_importance_df['fold'] = fold
-
         feature_importance_df_total = pd.concat([feature_importance_df_total, 
                                                  feature_importance_df], 
                                                  axis=0)
@@ -168,7 +172,8 @@ for bag in range(bag_num):
         print(f"Bags: {bag},
         Fold: {fold}, 
         log loss: {round(logloss, 3)},
-        balanced los loss: {round(balanced_logloss, 3)}")
+        balanced los loss: {round(balanced_logloss, 3)}"
+        )
 ```
 ```
 -------------------------- bag: 0 --------------------------
@@ -183,21 +188,9 @@ Bags: 1, Fold: 1, log loss: 0.235, balanced los loss: 0.144
 Bags: 1, Fold: 2, log loss: 0.067, balanced los loss: 0.041
 Bags: 1, Fold: 3, log loss: 0.233, balanced los loss: 0.119
 Bags: 1, Fold: 4, log loss: 0.204, balanced los loss: 0.127
--------------------------- bag: 2 --------------------------
-Bags: 2, Fold: 0, log loss: 0.221, balanced los loss: 0.134
-Bags: 2, Fold: 1, log loss: 0.161, balanced los loss: 0.106
-Bags: 2, Fold: 2, log loss: 0.134, balanced los loss: 0.099
-Bags: 2, Fold: 3, log loss: 0.187, balanced los loss: 0.138
-Bags: 2, Fold: 4, log loss: 0.212, balanced los loss: 0.106
 ...
 ...
 ...
--------------------------- bag: 18 --------------------------
-Bags: 18, Fold: 0, log loss: 0.137, balanced los loss: 0.088
-Bags: 18, Fold: 1, log loss: 0.269, balanced los loss: 0.171
-Bags: 18, Fold: 2, log loss: 0.122, balanced los loss: 0.075
-Bags: 18, Fold: 3, log loss: 0.205, balanced los loss: 0.156
-Bags: 18, Fold: 4, log loss: 0.129, balanced los loss: 0.064
 -------------------------- bag: 19 --------------------------
 Bags: 19, Fold: 0, log loss: 0.291, balanced los loss: 0.155
 Bags: 19, Fold: 1, log loss: 0.272, balanced los loss: 0.134
