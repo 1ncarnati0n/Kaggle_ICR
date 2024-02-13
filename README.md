@@ -64,9 +64,9 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 
 ## 탐색적 데이터분석 EDA
 
+<p align='center'><img src="assets/fig01.png" width="520"></p>
 <p align='center'><img src="assets/fig00.png" width="520"></p>
-<p align='center'><img src="assets/fig00.png" width="520"></p>
-<p align='center'><img src="assets/fig03.png" height="420"> <img src="assets/fig04.png" height="420"></p>
+<p align='center'><img src="assets/fig03.png" height="360"> <img src="assets/fig04.png" height="360"></p>
 
 
 - 특정 피쳐간의 상관관계가 너무 높아 다중공선성으로 의심이 되는 부분이 있었다. 
