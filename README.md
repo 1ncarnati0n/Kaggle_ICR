@@ -64,12 +64,11 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 
 ## 탐색적 데이터분석 EDA
 
-<p align='center'><img src="assets/fig01.png" width="520"></p>
-<p align='center'><img src="assets/fig00.png" width="520"></p>
+<p align='center'><img src="assets/fig01.png" width="720"></p>
+<p align='center'><img src="assets/fig02.png" width="720"></p>
 <p align='center'><img src="assets/fig03.png" height="360"> <img src="assets/fig04.png" height="360"></p>
 
-
-- 특정 피쳐간의 상관관계가 너무 높아 다중공선성으로 의심이 되는 부분이 있었다. 
+- 특정 피쳐간의 상관관계가 너무 높아 다중공선성으로 의심이 되는 부분이 있었습니다. 
 
 <br>
 
@@ -113,10 +112,11 @@ $$ Log\ Loss = \frac{-\frac{1}{N_0}\Sigma_{i=1}^{N_0}y_{0i}\log{p_{0i}}-\frac{1}
 
 - 이미 평가지표에서 클래스 불균형을 보정한다고 판단하고 있기에 별도의 처리과정을 진행하지 않았습니다.
 
+<br>
+
 ### 다중공선성
 
 EDA 를 통한 독립변수간 상관관계가 높아 다중공선성으로 의심되는 피쳐들을 확인했습니다. 
-<p align='center'><img src="assets/fig04.png" width="520"></p>
 
 <br>
 
